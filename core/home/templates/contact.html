@@ -12,8 +12,19 @@
         <p>
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veniam,
             fugiat. Possimus eligendi eaque iste asperiores dolorem dolorum
+
+            {% for item in data %}
+                {%if item.gender == 'male'%}
+                    <h2>Boy</h2>
+                {%else%}
+                    <h2>Girl</h2>
+                {%endif%}
+            {%endfor%}
+            <h3>Common html code in 2 or more files could be placed in one file using {%block block_name%}....{%endblock%} method</h3>
             repellendus? Voluptatibus numquam consequatur recusandae soluta
             sapiente obcaecati aperiam nulla aspernatur aut. Tempore.
         </p>
+
+        {{data}}
     </body>
 </html>
