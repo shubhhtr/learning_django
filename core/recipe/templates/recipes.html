@@ -53,7 +53,26 @@
     <br />
     <hr />
 
-    <table class="table table-striped">
+    <div class="mt-5">
+        <div class="col-6 mx-auto">
+            <form>
+                <div class="mb-3">
+                    <label
+                        for="exampleFormControlInput1"
+                        class="form-label">
+                        Search Food
+                    </label>
+                    <input
+                        type="text"
+                        class="form-control"
+                        name="search" />
+                </div>
+                <button class="btn btn-primary">Search</button>
+            </form>
+        </div>
+    </div>
+
+    <table class="table table-striped mt-5">
         <thead>
             <tr>
                 <th scope="col">S.No.</th>
@@ -75,6 +94,11 @@
                         style="height: 100px" />
                 </td>
                 <td>
+                    <a
+                        href="/update-recipe/{{item.id}}"
+                        class="btn btn-success m-2"
+                        >Update</a
+                    >
                     <a
                         href="/delete-recipe/{{item.id}}"
                         class="btn btn-danger"
