@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from django.http import HttpResponse
 from django.contrib import messages
 from .models import *
 
@@ -18,7 +19,15 @@ def recipes(request):
         Recipes.objects.create(recipe_name = recipe_name, recipe_description = recipe_description, recipe_image = recipe_image)
         return redirect('/recipes/')
     
-    return render(request, 'recipes.html')
+    context = {'recipes':Recipes.objects.all() }
+    return render(request, 'recipes.html', context= context)
+
+
+@login_required(login_url='/login')
+def delete_recipe(request, id):
+    queryset = Recipes.objects.get(id=id)
+    queryset.delete()
+    return redirect('/recipes')
 
 
 def login_page(request):
