@@ -4,7 +4,7 @@ from django.http import HttpResponse
 # Create your views here.
 
 def home(request):
-    return HttpResponse("<h2>Testing</h2>")
+    return HttpResponse("<h2>Welcome</h2><a href='/recipes'>Go to Recipe App</a>")
 
 def contacts(request):
 
